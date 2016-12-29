@@ -1,0 +1,53 @@
+PHP_SAPI:
+PHP_SAPI 用来判断是使用命令行还是浏览器执行的，如果 PHP_SAPI==’cli’ 表示是在命令行下执行
+
+error_reporting(E_ALL);
+ini_set( 'display_errors', 'On' );
+
+error_reporting(0);
+ini_set( 'display_errors', 'Off' );
+
+encodeURIComponent函数转码
+$.get("c_acc_naru.php?action=check_acc&zones="+f_zones+"&name="+encodeURIComponent(f_name),function(result) {
+    json2arr = eval("("+result+")");
+    type = json2arr['type'];
+    msg = json2arr['msg'];
+    if(type != 'success') $('#check_log').html('<font color="red">'+msg+'</font>');
+    if(type == 'success') $('#acc').val(msg);
+});
+
+
+程序在执行脚本的时候，可能脚本占用内存过大，导致不能读取数据，
+
+require_once "reader.php";
+//php中读取excel表格
+$filename = "excel/aaa.xls";
+$data = new Spreadsheet_Excel_Reader();
+$data->setOutputEncoding('utf-8');
+$data->read("$filename");//    此处可能会读取很大的数据，导致超出php设置的值
+*******可输出查看当前脚本占用内存***
+echo memory_get_usage();
+************************************
+print_r($data->sheets);
+exit;
+
+可使用，调节当前脚本占用的内存
+ini_set('memory_limit','500M'); (最大单线程的独立内存使用量)
+
+ 
+Fidder 实现post提交数组，配置头文件
+Content-Type: application/x-www-form-urlencoded
+
+在PHP中所有的报错信息可以用error_reporting()这个函数来设置：
+它的参数有字符串和数字两种表示方法，共14个等级，但是呢，我看使用其他数字貌似也可以，起初我以为它指的是一定的报错区间，后来，终于发现了其中的规律：
+复制代码代码如下:
+error_reporting( 7 ) = error_reporting( 1+2+4)= error_reporting(E_ERROR | E_WARING | E_PARSE)
+
+error_reporting(0);不显示错误
+
+<?php
+$connection = ssh2_connect('shell.example.com', 22);
+ssh2_auth_password($connection, 'username', 'password');
+
+ssh2_scp_send($connection, '/local/filename', '/remote/filename', 0644);
+?>
