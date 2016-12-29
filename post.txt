@@ -1,0 +1,12 @@
+Post提交：
+$ch = curl_init ();
+curl_setopt ( $ch, CURLOPT_URL, $uri );
+curl_setopt ( $ch, CURLOPT_POST, 1 );
+curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+$r = curl_exec ( $ch );
+curl_close ( $ch );
+注：$data为多维数组，会有错误提示 Array to string 
+可以$r['str']=serialize($data);
+传参数时 ，传$r;
