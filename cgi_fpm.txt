@@ -1,0 +1,2 @@
+php-cig  长时间不访问 php会自动停止
+php-fpm  
