@@ -1,4 +1,4 @@
-2.php 查出来或模拟的数据
+php 查出来或模拟的数据
 $data[] = array('volume' => 67, 'edition' => 2);
 $data[] = array('volume' => 86, 'edition' => 1);
 $data[] = array('volume' => 85, 'edition' => 6);
@@ -6,15 +6,7 @@ $data[] = array('volume' => 98, 'edition' => 2);
 $data[] = array('volume' => 86, 'edition' => 6);
 $data[] = array('volume' => 67, 'edition' => 7);
 
-
-3.进行排序
-
-1
-2
-3
-4
-5
-6
+进行排序
 foreach ($data as $key => $row) {
     $volume[$key]  = $row['volume'];
     $edition[$key] = $row['edition'];
