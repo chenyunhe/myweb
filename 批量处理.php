@@ -1,4 +1,5 @@
- public function accessory($params=array()){
+<?php 
+  public function accessory($params=array()){
         $zids=get_cli_option('zids');
         $zidsarr=explode('_',$zids);
 
@@ -93,3 +94,4 @@
             fclose($handle); 
         }
     }
+?>
